@@ -2,13 +2,18 @@
 
 ➡️ https://lbltavares.github.io/DESMO-J_Lavanderia
 
+### Alunos:
+- Lucas Laborne
+- Cristiano Coelho
+- Caique Ribeiro
+
 ---
 
-Este é o código correspondente a um modelo de simulaçãoo dirigida por eventos discretos que emula o funcionamento de uma lavanderia de roupas self-service, com apenas uma máquina de lavar-roupas (código  Baixar códigoem Java).
+Este é o código correspondente a um modelo de simulaçãoo dirigida por eventos discretos que emula o funcionamento de uma lavanderia de roupas self-service, com apenas uma máquina de lavar-roupas.
 
 O código foi desenvolvido utilizando-se o framework DESMO-J. Você necessitará dele para executar o código disponibilizado pelos professores.
 
-Para a resolução do exercí­cio proposto você deve ler o material, também disponí­vel no Canvas (Introdução: DESMO-J  Baixar Introdução: DESMO-J) intitulado "DESMO-J: Introdução ao framework de simulação.
+Para a resolução do exercício proposto, você deve ler o material, também disponivel no Canvas (Introdução: DESMO-J) intitulado "DESMO-J: Introdução ao framework de simulação.
 
 Em seguida, você deve instrumentar o código disponibilizado de forma que, ao final da execução da simulação, sejam indicados os valores das seguintes métricas de desempenho:
 

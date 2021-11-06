@@ -22,10 +22,9 @@ Em seguida, você deve instrumentar o código disponibilizado de forma que, ao f
     c) tempo médio que um cliente gasta na lavanderia;
     d) throughput da lavanderia.
 
-Encaminhar relatório em formato PDF, apresentando os resultados obtidos para cada uma das quatro métricas.
+* Encaminhar relatório em formato PDF, apresentando os resultados obtidos para cada uma das quatro métricas.
 
 * Produzir um vídeo em formato MP4 com os comentários de todo o procedimento de obtenção dos resultados da simulação (salvar o vídeo em uma plataforma como OneDrive ou Google Drive). Encaminhar somente o link para o vídeo.
-
 Obs.: Vídeo de até 10 min de duração.
 
 - Lembrem-se de incluir os nomes de todos os integrantes e das fontes de consulta.

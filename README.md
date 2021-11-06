@@ -3,9 +3,7 @@
 ➡️ https://lbltavares.github.io/DESMO-J_Lavanderia
 
 ### Alunos:
-- Lucas Laborne
-- Cristiano Coelho
-- Caique Ribeiro
+Lucas Laborne, Cristiano Coelho e Caique Ribeiro
 
 ---
 

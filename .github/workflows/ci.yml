@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  ci:
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Criando Diretórios
+        run: mkdir docs bin
+
+      - uses: joschi/setup-jdk@v2
+        name: Compilando o projeto
+        with:
+          java-version: '8'
+          architecture: 'x64'
+      - run: javac -d bin -cp "src:lib/desmoj-2.5.1e-bin.jar" src/App.java
+
+      - name: Executando o projeto
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: java -cp "bin:lib/desmoj-2.5.1e-bin.jar" App
+
+      - name: Ajustando charset dos HTMLs
+        run: for i in Experimento*.html; do sed -i 's/iso-8859-1/UTF-8>/g' "$i"; done
+      
+      - uses: markwilson/html2pdf@v1.0
+        name: Convertendo HTML para PDF
+        with:
+          htmlPath: Experimento da lavanderia_report.html
+          pdfName: ../pdfs/report
+
+      - name: Combinando PDFs
+        uses: elMuso/MergePDFs-action@1.1
+        with:
+          path: pdfs
+          filename: DESMOJ_Lavanderia_Lucas_Caique_Cristiano
+          
+      - name: Preparando documentos
+        run: mv pdfs/DESMOJ_Lavanderia_Lucas_Caique_Cristiano.pdf docs/
+
+      - name: Criando GitHub release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Entrega
+          tag_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+          files: docs/DESMOJ_Lavanderia_Lucas_Caique_Cristiano.pdf
+          
+      - name: Preparando arquivos do GH-Pages
+        run: mkdir pages; mv *.html pages/
+
+      - name: GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2.5.0
+        with:
+          keep_history: true
+          target_branch: gh-pages
+          build_dir: pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
